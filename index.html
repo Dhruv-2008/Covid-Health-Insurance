@@ -1,116 +1,240 @@
+<!DOCTYPE html>
 <html>
-
 <head>
+	<title>Exploring Space</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <meta charset="UTF-8">
-  
-<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
 
-<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
-<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
+  <link rel="icon" href="sports.jpeg">
+  </head>
+  <body>
 
-  <title>Covid Health Insurance- A wake up call!</title>
-  
-  
-  
-  
-<style>
-body 
-{
-  background-color: white;
-}
-#author
-{
-  font-family: dark-italic;
-}
-#button
-{
-  text-align: left;
-  text-decoration: hover, underline;
-  padding-bottom: 60px;
-  color: blue;
-}
-#button:hover
-{
-font-size: 17px;
-}
-.heading
-{
-  font-size: 30px;
-  color: rgb(44, 41, 41);
-}
-.pic
-{
-  width: 150px;
-}
-</style>
+    <nav class="navbar-inverse" style="position:sticky;top:0;z-index:99999">
 
-  
-  
-  
-  
-
-</head>
-
-<body>
-  <h1 class="heading">
-    Covid & Health Insurance - A wake up call!
-  </h1>
-  <p class=" col-md-4 col-ms-12 col-xs-12 para">
-    It was just a few months ago when insurance advisors had a herculean task to explain to their clients the importance of health insurance. First, people won’t understand why health insurance is important and if they got convinced they would debate that they are currently healthy and won’t require insurance for next few years or that their employer provides them with a group insurance. The excuses were many and only a handful of people ended up buying a private health cover for their families. In the last three months, we have seen a spurt and panic to get hold of an insurance policy and people are contacting their advisors desperately.  Many end up getting a policy successfully and many fail to get one due to pre- existing conditions clause.
-  <br>
-  <br>
-    Covid has certainly left people thinking and health insurance is definitely on their priority list now. Insurance companies have earned goodwill by successfully settling Covid claims. The average claims range from anything between Rs.1.5 lakhs to 15 lakhs depending upon the severity of the case and hospital selected for treatment.
-    <br>
-    <br>
-    In India the bottom of the pyramid is covered by the Ayushman Bharat Yojana and some government employees are covered by ECHS and other government schemes. That leaves a sizeable population without insurance cover. This is where private health companies come into play. 
-    <br>
-    <br>
-  There are some big advantages of getting a health policy early on in India like It has a lifelong renewability clause which means an Insurance company will not deny you the right to renew your policy irrespective of the number of claims you may have taken. Unlike in developed countries, where the insurance company has a right to reject a policy on renewal depending upon your claim history or can subject you to advance medical tests and levy extra premium.
-  <br>
-  <br>
-    Having a good health insurance cover should be on top of the list priority as we know one hospitalisation can erode your lifelong savings. It makes sense to have your own health plan even if you are covered by your company in a group plan. In a private health plan you are the owner of the health plan and can renew the policy for life whereas in a group plan you are just a member and do not decide on terms and conditions of the policy and you are covered till the time you are part of the group. Health insurance should not be seen as a cost, rather an investment which protects you financially in times of need. 
-    <br>
-    <br>
-    The good news is that your existing health insurance policy covers covid and all new policies taken now will cover covid after 30 day waiting period clause. So if you have not planned a health insurance yet, do it now, and make sure that policy you take and the company you choose is for long term as you can renew your policy for life.
-    <br>
-    <br>
-  Some do’s for buying a health policy for your family
-  <br>
-  <br>
-    1. Always consult an advisor before buying a health policy. A cheaper product may not be the right product for you, maybe it's not giving you adequate cover that you are looking for.
-    <br>
-    <br>
-  2. Buy a high sum Insured plan upward of 50 lakhs to 1 crore keeping in mind that getting a high sum insured plan is difficult to get as you grow old and also keep in mind medical inflation is in double digits.
-  <br>
-  <br>
- 3. Buy a plan which offers a single deluxe room and no capping in ICU charges. If you are one of those who don't mind spending extra money you can opt for a suite room as well.
- <br>
- <br>
-  4.  Take a health plan for your parents as there is no capping on entry age.
-  <br>
-  <br>
-  5.  If you are a frequent traveller, opt for a plan with international benefits. You can get treated anywhere in the world for critical illnesses detected in India and also be covered for travel related medical emergencies.
-  <br>
-</p>
-  <p id="author">
-    Anuj Gandhi -  Author is Founder & CEO at My Rupee to Invest Pvt. Ltd.
-  </p>
-
-  <img src="logo.png" class="pic">
-  <br>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#">Exploring Space</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#sports">Planets</a></li>
+            <li><a href="#links">Features of Space</a></li>
+            
+            
+          </ul>
+        </div>
+    
+    </nav>
+    
+      <section>
+      <h1>
+        Planets
+      </h1>
+      <hr>
+      <br>
+      <br>
+      <div class="container" id="sports">
+        <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+      <h3 class="h1s">
+         1. Mercury
+      </h3>
+      <br>
+        
+      <p>
+          This planet is the smallest planet in our solar system. Its radius is a mere 2,439.7 km. In fact, one could fit 18 mercury's inside earth! It is also the nearest planet to the Sun, just 57.91 million kilometers away. Despite its close proximity to the sun, its temperature is very fluctuant. This planet's orbit is extremely elliptical too. Mercury has many factors that earth has. Scientists are of the belief that there is ice in mercury. It also has a think atmosphere. Surprisingly, mercury's has a humongous core (75% of the radius of the planet), not to mention that it has more iron in its core than any other planet in our solar system! 
+      </p>
+      <img src="mercury.jpeg" class="image-responsive image-thumbnail pics">
+        </div>
+      </div>
 <br>
-  <a id="button" href="https://www.myrupee2invest.com/" target="_blank">Home Page</a> 
-</body>
+<br>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+2. Venus
+</h3>
+<p>
+This planet is also known as earth's twin due to its remarkable similarity with earth in terms of size, composition and orbit. Even though it is not the closest planet to the sun, it is definitely the hottest planet in our solar system. In venus, temperatures can go up to a staggering 470 degrees Celsius. This is mainly because of the fact that venus is surrounded by an extremely thick atmosphere. Venus's atmosphere is about 92 times more dense than earth's. Venus's atmosphere is mainly made up of carbon dioxide and clouds of sulfuric acid. This prevents heat from escaping the planet, thus creating a greenhouse effect which is the reason venus is the hottest planet in the solar system. Venus is one of the only two planets that we can see when it crosses the sun. It is also the brightest planet visible from earth! In fact, it is also known as the "The Morning Star" and "The Evening Star" because it is the first "star" that is visible when the sun rises or sets.
+</p>
+<img src="venus.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+3. Mars
+</h3>
+<br>
+<p>
+    This planet is considered to be the future for humankind. Earth has been a home for humans since the beginning, however, with global warming, climate change, water pollution, air pollution, deforestation this planet may not be our home for long. It is assumed that sooner or later humans will depart Earth and go to mars. Therefore, it is neccesary for us to know some vital facts about mars. Many people are aware of the fact that mars has water, but what they are unaware of is that the water of mars is mainly in the form of ice caps in the poles of the planet. It is also theorized that mars used to have a thicker atmosphere than it has now. Mars has 2 moons around it; phobos and deimos. It is theorized that in approximately 30 million to 50 million years, phobos will crash into the surface of mars, or rip apart due to the tidal force of the planet. The surface gravity in mars in 37% of what you will find on earth. Mars is also home to the tallest volcano in our solar system. According to NASA, this volcano is 25 kilometers high and 624 kilometers in diameter. The average temperature on this planet at the mid-latitudes is -45 degrees Celsius. The air pressure in mars is just about 1% of the air pressure in earth. Its atmosphere is mainly comprised of 95% carbon dioxide, 3% nitrogen and 1.6% argon.
+</p>
+<img src="mars.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+4. Jupiter
+</h3>
+<br>
+<p>
+   This planet is the largest planet in our solar system. It is also the 4th brightest object in our solar system. Surprisingly, Jupiter has the shortest day amongst the planets in our solar system. It takes a mere 9 hours and 55 minutes to turn on its axis. It also takes almost 12 earth years to complete a full revolution around the sun! One of the most famous facts about the planet Jupiter is the "The Great Red Spot". This storm has been raging for over 350 years and is so big, it could fit 3 earth's inside it. Jupiter also has the strongest magnetic field in the solar system. Compared to earth, Jupiter's magnetic field is 14 times more stronger! Jupiter also has a thin ring system which are made of dust. Jupiter also has 79 moons, including Ganymede, the biggest moon in our solar system! Jupiter is also a gas giant, meaning it has no solid surface. Jupiter is mainly made up of hydrogen (90%) and helium (10%).
+</p>
+<img src="jupiter.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+6. Saturn
+5/h3>
+<br>
+<p>
+    This planet is extremely well known for its rings, but did you know that if you put this planet in a pool big enough for its size, it would float! Saturn is also the second biggest planet in our solar system, and is also a gas giant! The rings it is most well known for, are actually ice, dust and rock, their size is very fluctuating, they can be as small as sand particles, and as big as skyscrapers. Saturn is also quite a windy planet, with windspeed going up to 1,800 kilometres per hour at the equator! On earth the fastest winds go up to 400 kilometres per hour. A year in Saturn is approximately 29 Earth years! However, Saturn revolves on its axis quite quickly. A day in Saturn is 10 hours and 14 minutes. In fact, 764 earth’s could fit inside Saturn. Saturn also has 82 discovered moons, making this the planet with the most moons in our entire solar system. Saturn’s atmosphere has roughly 75% hydrogen and 25% helium.
+</p>
+<img src="saturn.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+6. Uranus
+</h3>
+<br>
+<p>
+    This planet is the 7th planet in our solar system. The distance between the sun and Uranus is 2.9 billion kilometres! A day on Uranus is 17 earth hours. Uranus also takes 84 earth years to complete one revolution around the sun. Uranus's mass is a dense fluid which is a mixture of water, methane and ammonia. Uranus also has 27 moons along with 13 rings! Only Voyager 2 has ever gone past this planet, no other spacecraft has had the opportunity to study Uranus from a close distance. Astonishingly, Uranus rotates from east to west like Venus, but unlike any planet in our solar system, Uranus rotates on its side! This planet is also the coldest in our solar system, with temperatures falling to a staggering -218 Celsius! In Uranus, wind speeds can go up to roughly 900 kilometers per hour!
+</p>
+<img src="uranus.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+<h3 class="h1s">
+7. Neptune
+</h3>
+<br>
+<p>
+    This planet is the most distant planet from the sun, and it is also the smallest gas giant. A year on Neptune is 165 Earth years and a day is 16 hours! Neptune also has 6 faint rings along with 14 moons. Like Uranus, only 1 spacecraft has ever gone past Neptune; Voyager 2. Neptune is also the windiest planet in our solar system, with windspeeds going up to 1931 kilometres per hour! The atmosphere of Neptune is mostly made up of hydrogen and helium with traces of methane. Neptune's magnetic field is also 27 more times powerful compared to Earth's. Neptune is also 4 times more wide than earth.
+</p>
+<img src="neptune.jpeg" class="image-responsive image-thumbnail pics">
+    </div>
+</div>
+<br>
+<br>
+</section>
+
+<section>
+    <div class="container" id="links">
+        <div class="page-header col-lg-12 col-sm-12 col-md-12 col-xs-12">
+            <h2>
+                Features of Space
+           </h2>
+           
+            <br>
+            <br>
+<p class="features">
+				- Dark energy takes 68% of our universe. Dark energy is the name of the mysterious force that causes the rate of expansion of our universe to accelerate over time, instead of slowing down.
+				<br>
+				</p>
+				<p class="features">
+- Dark matter takes 27% of our universe. Dark matter is made up of particles that do not absorb or emit light, so they cannot be seen nor detected by our technology. We know that dark matter exists because of its effect on objects that we can directly observe.
+<br>
+</p>
+<p class="features">
+				- Only 5% of the universe is visible and discoverable. This includes planets, stars and galaxies.
+</p>
+<br>
+<br>
+<br>
+        </div>
+    </div>
+</section>
+
+<div class="copy_right_footer">
+<b>Designed and made by - Dhruv Gandhi, Shreyshth Passricha and Abhijay Malhotra</b>
+</div>
+
+<style>
+    body{
+    text-align: center;
+    background-color: rgba(56, 54, 54, 0.767);
+    color: white;
+}
+.h1s{
+    text-align: left;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+#marqueeStyle{
+    width: 100%;
+    direction: right;
+    height: 27px;
+    color: white;
+    font-size: 120%;
+    background-color: #ec801b;
+    border-radius: 20px;
+  }
+
+input
+{
+    background: grey
+}
+
+.copy_right_footer{
+    position: fixed;
+    color: white;
+    background-color: grey;
+    opacity: 88%;
+    bottom: 0;
+    width: 100%;
+    line-height: 3;
+    text-align: center;
+}
+
+.navbar-inverse {
+    background-color: rgb(10, 9, 8)
+}
+
+.pics{
+    border-radius: 20px;
+    border-style: dotted;
+    border-width: 1px;
+    box-shadow: 5px 5px 18px grey;
+}
+
+.as{
+    color: whitesmoke;
+}
+.as:hover{
+    font-size: 15px;
+    color: white;
+    text-decoration: underline;
+}
+
+</style>
+  </body>
 </html>
-
-  
-  
-  
-  
-
-
- 
